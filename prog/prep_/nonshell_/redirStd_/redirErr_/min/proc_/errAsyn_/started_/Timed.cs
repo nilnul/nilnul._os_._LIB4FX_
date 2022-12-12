@@ -1,4 +1,4 @@
-﻿using nilnul.win.prog._run;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using nilnul.win.proc_.nonshell_.redirStd_.redirErr_.errAsyn_;
 
 
 namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_.errAsyn_.started_
@@ -74,7 +73,10 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_.errAsyn_.
 		private void _timeout(CancellationToken cancel = default, int? life = null, int? bye = null, int? waitAftKill = null)
 		{
 			//this.cancel = cancel;
-			_task = os.proc_.started_.deadlined._end._KillX._EndedAsyn(boxed, cancel, life, bye);
+			_task = os.proc_.started.cull_.delayed_._CancellableX._Exit0cancelledAsTask(
+				boxed,
+				life,bye, cancel
+			);
 
 
 			//var cancelSrc = new CancellationTokenSource();

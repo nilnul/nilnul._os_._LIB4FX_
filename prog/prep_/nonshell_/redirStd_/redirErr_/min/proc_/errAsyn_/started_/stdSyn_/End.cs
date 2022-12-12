@@ -7,8 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using nilnul.fs;
 using nilnul.fs.address_;
-using nilnul.win.prog._run;
-using nilnul.win.prog._run.prep_;
+
+
 
 namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_.errAsyn_.started_.stdSyn_
 {
@@ -110,7 +110,7 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_.errAsyn_.
 			// To avoid deadlocks, always read the output stream first and then wait.  
 			boxed.WaitForExit();
 
-			//return new win.prog._run.Result(boxed.ExitCode, r, this.err);
+			//return new nilnul.os.proc_.finished._result.CodMsgErr(boxed.ExitCode, r, this.err);
 
 		}
 		public os.proc_.finished._result.CodMsgErr result

@@ -13,10 +13,10 @@ namespace nilnul.os.proc_.finished._result.data
 			}
 		}
 
-		public static void Vow(nilnul.win.prog._run.Result r)
-		{
-			Vow( (_result.CodMsgErr)r);
-		}
+		//public static void Vow(nilnul.os.proc_.finished._result.CodMsgErr r)
+		//{
+		//	Vow( (_result.CodMsgErr)r);
+		//}
 	
 	
 

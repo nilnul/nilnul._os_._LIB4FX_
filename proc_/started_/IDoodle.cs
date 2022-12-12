@@ -5,7 +5,7 @@ using System.Text;
 namespace nilnul.os.proc_.started_
 {
 	/// <summary>
-	/// the programm must be <see cref="started.end_.IUltimatum"/>ed in a given deadline;
+	/// the programm must be <see cref="started.quit_.IUltimatum"/>ed in a given deadline;
 	/// </summary>
 	/// alias:
 	///		defer

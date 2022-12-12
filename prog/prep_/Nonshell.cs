@@ -24,7 +24,7 @@ namespace nilnul.os.prog.prep_
 		{
 			val.UseShellExecute = false;        //The default is true on .NET Framework apps and false on .NET Core apps.
 			val.CreateNoWindow = true; //the default is false; if false, we have too much windows popping out;
-			val.WindowStyle = ProcessWindowStyle.Hidden;
+		//	val.WindowStyle = ProcessWindowStyle.Hidden;
 			val.WindowStyle = ProcessWindowStyle.Minimized;
 		}
 

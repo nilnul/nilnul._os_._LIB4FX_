@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using nilnul.fs;
 using nilnul.fs.address_;
-using nilnul.win.prog._run;
-using nilnul.win.prog._run.prep_;
-using nilnul.win.prog._run.prep_.nonShell_;
+
+
+
 
 namespace nilnul.os.prog.prep_.nonshell_.redirStd_
 {
@@ -27,9 +27,13 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_
 		public RedirErr(prog.prep_.nonshell_.RedirStd val) : base(val)
 		{
 			val.info.RedirectStandardError =true;
+			val.info.StandardErrorEncoding = System.Text.Encoding.UTF8;
+#pragma warning without this line, chinese char in dir name is messy when running git command using shell.
+
+
 		}
 
-	
+
 
 
 		public RedirErr(prog.prep_.Nonshell val) : this(new prog.prep_.nonshell_.RedirStd(val))

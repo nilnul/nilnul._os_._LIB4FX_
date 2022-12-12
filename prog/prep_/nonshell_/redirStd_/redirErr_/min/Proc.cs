@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using nilnul.fs;
 using nilnul.fs.address_;
-using nilnul.win.prog._run;
-using nilnul.win.prog._run.prep_;
-using nilnul.win.prog._run.prep_.nonShell_;
+
+
+
 
 namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min
 {
-	public class Proc :prep.Proc
+	public class Proc :os.Proc
 	{
 
 		public Proc(prep_.nonshell_.redirStd_.redirErr_.Min info) : base(

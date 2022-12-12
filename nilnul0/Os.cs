@@ -13,8 +13,19 @@ namespace nilnul
   
 这个是一个北欧人（Andreas Kling），自己花了2年时间写的一个操作系统，大概19年开始干的，慢慢地支持各种功能了，包括编译器，html等等；也都开源了，还同时youtube教学 :）
 https://github.com/SerenityOS/serenity
-	
+
+
 	 */
+
+	/// <summary>
+	/// operating system of a computer;
+	/// eg:
+	///		windows,
+	///		unix
+	///			linux
+	///			MacOs
+	/// </summary>
+
 	interface IOs
     {
     }

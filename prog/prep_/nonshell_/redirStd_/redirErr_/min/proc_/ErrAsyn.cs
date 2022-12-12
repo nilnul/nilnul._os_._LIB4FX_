@@ -6,10 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using nilnul.fs;
 using nilnul.fs.address_;
-using nilnul.win.proc_.nonShell_.redirStd_.redirErr_.errAsyn_;
-using nilnul.win.prog._run;
-using nilnul.win.prog._run.prep_;
-using nilnul.win.prog._run.prep_.nonShell_;
+
+
+
 
 namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_
 {
@@ -17,7 +16,7 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_
 	{
 
 
-		
+
 		public ErrAsyn(nilnul.os.prog.prep_.nonshell_.redirStd_.RedirErr info) : base(
 			(info)
 		)
@@ -45,7 +44,7 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_
 		{
 		}
 
-	
+
 
 		public ErrAsyn(PrepI prep) : this(new prog.prep_.Nonshell(prep))
 		{
@@ -61,9 +60,9 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_
 		}
 
 		public ErrAsyn(string cmd, string arg, ShieldI dir) : this(
-			
+
 			cmd, arg, dir.ToString()
-			
+
 			)
 		{
 		}
@@ -83,12 +82,14 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_
 			get { return _errBuilder; }
 			set { _errBuilder = value; }
 		}
-		public string err {
-			get {
+		public string err
+		{
+			get
+			{
 				return _errBuilder.ToString();
 			}
 		}
-		
+
 		public void reader(DataReceivedEventHandler handler)
 		{
 			boxed.ErrorDataReceived += handler;
@@ -97,15 +98,15 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_
 		{
 			reader(
 			 new DataReceivedEventHandler((sender, e) =>
-			{
-				_errBuilder.
-					//AppendLine
-					Append
-					(e.Data);//msDoc says newline is included, but it's not in fact;
-				Console.Write($")error: {e.Data};");
+				{
+					_errBuilder.
+						//AppendLine
+						Append
+						(e.Data);//msDoc says newline is included, but it's not in fact;
+					Console.Write($")error: {e.Data};");
 
-				//_errBuilder.Append(e.Data);//If value is null, no changes are made.
-			})
+					//_errBuilder.Append(e.Data);//If value is null, no changes are made.
+				})
 			);
 		}
 

@@ -37,14 +37,31 @@ namespace nilnul.os.prog
 		public Prep(string cmd, string arg, FolderI dir) : base(cmd, arg, dir)
 		{
 		}
+		public Prep(string cmd,string arg) : base(cmd, arg)
+		{
+		}
+		public Prep(string cmd) : base(cmd)
+		{
+		}
+
+
 
 		public Prep(PrepI prep):base(prep)
 		{
 		}
 
-		protected Prep(PrepA prep) : this((PrepI)prep)
+		public Prep(PrepA prep) : this((PrepI)prep)
 		{
 		}
+
+		//public Prep(nilnul.os.prog._run.PrepI prep):this( prep.info)
+		//{
+
+		//}
+		//public Prep(nilnul.os.prog.Prep prep):this( prep.info)
+		//{
+
+		//}
 
 	}
 }

@@ -8,6 +8,8 @@ namespace nilnul.os.prog.prep_.shell_
 {
 	public interface IUxp
 		:os.prog.prep_.IShell
+		//,
+		//nilnul.obj_.
 	{
 	}
 }

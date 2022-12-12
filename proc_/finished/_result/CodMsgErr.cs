@@ -9,7 +9,7 @@ namespace nilnul.os.proc_.finished._result
 	/// <summary>
 	/// 
 	/// </summary>
-	/// <see cref="win.prog._run.Result"/>
+	/// <see cref="ui.prog._run.Result"/>
 	public class CodMsgErr:_result.CodMsg
 	{
 		
@@ -25,25 +25,25 @@ namespace nilnul.os.proc_.finished._result
 			return new CodMsgErr(code, "",err);
 		}
 
-		static public implicit operator win.prog._run.Result(CodMsgErr cme) {
-			return new win.prog._run.Result(
-				cme.exitCode
-				,
-				cme.msg
-				,
-				cme.err
-			);
-		}
+		//static public implicit operator nilnul.os.proc_.finished._result.CodMsgErr(CodMsgErr cme) {
+		//	return new nilnul.os.proc_.finished._result.CodMsgErr(
+		//		cme.exitCode
+		//		,
+		//		cme.msg
+		//		,
+		//		cme.err
+		//	);
+		//}
 
-		static public implicit operator CodMsgErr(nilnul.win.prog._run.Result cme) {
-			return new CodMsgErr(
-				cme.exitCode
-				,
-				cme.msg
-				,
-				cme.err
-			);
-		}
+		//static public implicit operator CodMsgErr(nilnul.os.proc_.finished._result.CodMsgErr cme) {
+		//	return new CodMsgErr(
+		//		cme.exitCode
+		//		,
+		//		cme.msg
+		//		,
+		//		cme.err
+		//	);
+		//}
 
 
 		/*//  sometimes the err  has some txt */
