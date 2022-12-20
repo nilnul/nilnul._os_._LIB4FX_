@@ -10,32 +10,31 @@ using nilnul.fs.address_;
 
 
 
-namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_
+namespace nilnul.os.prog.prep_.nonshell_.nonwin_.redirStd_.redirErr.proc_
 {
 	public class ErrAsyn : Proc
 	{
 
 
 		
-		public ErrAsyn(nilnul.os.prog.prep_.nonshell_.redirStd_.RedirErr info) : base(
+		public ErrAsyn(RedirErr info) : base(
 			(info)
 		)
 		{
 			reader();
 		}
 
-
-
-
-		public ErrAsyn(nilnul.os.prog.prep_.nonshell_.RedirStd info) : this(
-			new prog.prep_.nonshell_.redirStd_.RedirErr(info)
+		public ErrAsyn(RedirStd info) : this(
+			new RedirErr(info)
 		)
 		{
 		}
 
+		public ErrAsyn(Nonwin val) : this(new RedirStd(val))
+		{
+		}
 
-
-		public ErrAsyn(prog.prep_.Nonshell val) : this(new prog.prep_.nonshell_.RedirStd(val))
+		public ErrAsyn(Nonshell val) : this(new Nonwin(val))
 		{
 		}
 
@@ -106,9 +105,8 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_
 					AppendLine
 					(e.Data);//msDoc says newline is included, but it's not in fact;
 
-
 				/// Debug.WriteLine would also write to Trace.Error
-				//Debug.WriteLine($"Error received: {e.Data};");
+				//Debug.WriteLine($")Error received: {e.Data};");
 
 				//_errBuilder.Append(e.Data);//If value is null, no changes are made.
 			})

@@ -10,7 +10,7 @@ using nilnul.fs.address_;
 
 
 
-namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_.errAsyn_
+namespace nilnul.os.prog.prep_.nonshell_.nonwin_.redirStd_.redirErr.proc_.errAsyn_
 {
 	/// <summary>
 	/// useful in logging if we write to file
@@ -41,13 +41,14 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_.errAsyn_
 		)
 		{
 		}
-	
 
-
-		public StdAsyn(Nonshell val) : this(new RedirStd(val))
+		public StdAsyn(Nonwin val) : this(new RedirStd(val))
 		{
 		}
 	
+		public StdAsyn(Nonshell val) : this(new Nonwin(val))
+		{
+		}
 
 		public StdAsyn(PrepI prep) : this(new Nonshell(prep))
 		{
@@ -114,7 +115,7 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_.errAsyn_
 			 {
 				 _stdBuilder.AppendLine(e.Data); // ms doc says newline is in data; but in fact it's not
 												 // _stdBuilder.Append(e.Data);
-				 //Debug.WriteLine($")Std received: {e.Data};");
+				 //Debug.WriteLine($"Std received: {e.Data};");
 
 
 			 })
