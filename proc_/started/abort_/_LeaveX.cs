@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace nilnul.os.proc_.started.abort_
 {
 	/// <summary>
-	/// doesnot care whether the killing is successful; let the os handle it;
+	/// doesnot care about whether the killing is successful; let the os handle it;
 	/// </summary>
 	/// alias:
 	///		leave

@@ -38,6 +38,20 @@ This is otherwise a specific case of a general problem with Process.Start(), the
 Use this overload to start a process resource by specifying a ProcessStartInfo instance. The overload associates the resource with a new Process component. If the process is already running, no additional process resource is started. Instead, the existing process resource is reused and no new Process component is created. In such a case, instead of returning a new Process component, Start returns null to the calling procedure.
 
 http://msdn.microsoft.com/en-us/library/0w4h05yb.aspx (First line under remarks)*/
+	///
+	/// <summary>
+	/// snapshot of a process at some point. It may be not up to date with the process itself. This is the reason why the status is often a past tense the word such as started or ended.
+	/// imaginary process; conceptual process; not a physical or existant process in computer operating system. That is, this is the info about a process, which might be not-yet-started, or have been terminated.
+	/// </summary>
+	/// <remarks>
+	///  a C# object, representing an Os process. the represented process might be not started yet; or the represented process might have been killed by the os;
+	/// This is a hot|live obj. a refeshing might be necessary.
+	/// 
+	///A Process means a program is in execution. When a program is loaded into the memory and becomes active, the program becomes a process. The process requires some essential resources such as registers, program counter, and stack.
+	/// </remarks>
+	/// 
+	/// <see href="https://twitter.com/alexxubyte/status/1736064485818056786"/>
+	/// proc is a running prog.
 	public interface IProc
 	{
 	}

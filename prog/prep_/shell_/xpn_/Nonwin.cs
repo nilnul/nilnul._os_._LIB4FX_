@@ -10,6 +10,9 @@ using nilnul.fs.address_;
 namespace nilnul.os.prog.prep_.shell_
 {
 
+	/// <summary>
+	/// <see cref="ProcessStartInfo.CreateNoWindow"/> has no effect.
+	/// </summary>
 
 	[Obsolete(nameof(xpn_.UiIsAlwaysCreated4WinException))]
 	public class Nonwin : Shell

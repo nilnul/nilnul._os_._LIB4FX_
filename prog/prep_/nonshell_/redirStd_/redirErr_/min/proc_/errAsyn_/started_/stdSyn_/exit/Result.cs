@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,13 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr_.min.proc_.errAsyn_.
 {
 	public class Result : nilnul.os.prog.run_.exit.ResultA
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cmd"></param>
+		/// <param name="arg"></param>
+		/// <param name="dir"></param>
+		/// <returns></returns>
 		public override nilnul.os.proc_.finished._result.CodMsgErr ofAddress(string cmd, string arg, string dir)
 		{
 			using (var p = new Ended(cmd,arg,dir) )

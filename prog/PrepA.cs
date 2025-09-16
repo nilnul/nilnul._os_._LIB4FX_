@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace nilnul.os.prog
@@ -19,6 +19,14 @@ namespace nilnul.os.prog
 		{
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cmd"></param>
+		/// <param name="arg"></param>
+		/// <param name="dir">
+		/// will be converted to long path;
+		/// </param>
 		public PrepA(string cmd, string arg=null, string dir=null)
 			:this(
 				 new ProcessStartInfo() {

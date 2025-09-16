@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <!--<Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />-->
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -10,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>nilnul.os</RootNamespace>
     <AssemblyName>nilnul._os_._LIB4FX_</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
     <NuGetPackageImportStamp>
@@ -63,67 +64,118 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>t.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Sym2nuget|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Sym2nuget\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev2nuget|AnyCPU'">
+    <OutputPath>bin\Dev2nuget\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <!--<LangVersion>7.3</LangVersion>-->
+    <!--<LangVersion>default</LangVersion>-->
+    <LangVersion>latest</LangVersion>
+    <!--<LangVersion>preview</LangVersion>-->
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.16.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>packages\DotNetZip.1.16.0\lib\net40\DotNetZip.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\..\.deps\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\..\.deps\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\.deps\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul.collection_._discrete_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul.collection_._discrete_._LIB_.1.1.220728.140313\lib\net48\nilnul.collection_._discrete_._LIB_.dll</HintPath>
+    <Reference Include="nilnul.collection_._discrete_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul.collection_._discrete_._LIB_.1.1.240820.180817\lib\net48\nilnul.collection_._discrete_._LIB_.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nilnul.lang_._cognom_._LIB_, Version=2.0.0.0, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul.lang_._cognom_._LIB_.2.0.240820.191858\lib\net48\nilnul.lang_._cognom_._LIB_.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nilnul.lang_._cot_._LIB4FX_, Version=1.0.0.0, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul.lang_._cot_._LIB4FX_.1.0.240820.181034\lib\net48\nilnul.lang_._cot_._LIB4FX_.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nilnul.lang_._cot_._LIB_, Version=2.0.0.0, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul.lang_._cot_._LIB_.2.0.240820.192426\lib\net48\nilnul.lang_._cot_._LIB_.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="nilnul.num._integer_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul.num._integer_._LIB_.1.1.220905.105721\lib\net481\nilnul.num._integer_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul.num._integer_._LIB_.1.1.240828.111913\lib\net48\nilnul.num._integer_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul.num._quotient_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul.num._quotient_._LIB_.1.1.220926.131208\lib\net481\nilnul.num._quotient_._LIB_.dll</HintPath>
+    <Reference Include="nilnul.num._quotient_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul.num._quotient_._LIB_.1.1.240820.181307\lib\net48\nilnul.num._quotient_._LIB_.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="nilnul.num._real_._LIB_, Version=2.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul.num._real_._LIB_.2.1.220818.53104\lib\net48\nilnul.num._real_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul.num._real_._LIB_.2.1.240907.121505\lib\net48\nilnul.num._real_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="nilnul._bit_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._bit_._LIB_.1.1.221129.150825\lib\net481\nilnul._bit_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._bit_._LIB_.1.1.240831.105350\lib\net48\nilnul._bit_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._character_._LIB_, Version=2.1.8343.38579, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul._character_._LIB_.2.1.221104.132532\lib\net481\nilnul._character_._LIB_.dll</HintPath>
+    <Reference Include="nilnul._character_._LIB_, Version=2.1.8387.39356, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._character_._LIB_.2.1.240831.105202\lib\net48\nilnul._character_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="nilnul._fs_._LIB_, Version=2.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._fs_._LIB_.2.1.221209.141242\lib\net481\nilnul._fs_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._fs_._LIB_.2.1.240902.165128\lib\net48\nilnul._fs_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._num_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul._num_._LIB_.1.1.220826.15831\lib\net481\nilnul._num_._LIB_.dll</HintPath>
+    <Reference Include="nilnul._lang_._LIB_, Version=1.1.0.0, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\nilnul._lang_._LIB_.1.1.240910.31540\lib\net48\nilnul._lang_._LIB_.dll</HintPath>
     </Reference>
-    <Reference Include="nilnul._num_._LINQ_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul._num_._LINQ_.1.1.220825.155237\lib\net481\nilnul._num_._LINQ_.dll</HintPath>
+    <Reference Include="nilnul._num_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul._num_._LIB_.1.1.240820.180030\lib\net48\nilnul._num_._LIB_.dll</HintPath>
+      <Private>True</Private>
+      <Aliases>global,num</Aliases>
+    </Reference>
+    <Reference Include="nilnul._num_._LINQ_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul._num_._LINQ_.1.1.240820.180032\lib\net48\nilnul._num_._LINQ_.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="nilnul._obj_._LIB_, Version=1.2.0.0, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._obj_._LIB_.1.2.221126.72816\lib\net481\nilnul._obj_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._obj_._LIB_.1.2.240924.105449\lib\net48\nilnul._obj_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="nilnul._rel_._LIB_, Version=1.2.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul._rel_._LIB_.1.2.220817.152548\lib\net48\nilnul._rel_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._rel_._LIB_.1.2.240831.105626\lib\net48\nilnul._rel_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="nilnul._set_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\nilnul._set_._LIB_.1.1.220905.140119\lib\net481\nilnul._set_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._set_._LIB_.1.1.240831.105511\lib\net48\nilnul._set_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="nilnul._time_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._time_._LIB_.1.1.221120.114651\lib\net481\nilnul._time_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._time_._LIB_.1.1.240902.183156\lib\net48\nilnul._time_._LIB_.dll</HintPath>
     </Reference>
     <Reference Include="nilnul._txt_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\nilnul._txt_._LIB_.1.1.221129.160511\lib\net481\nilnul._txt_._LIB_.dll</HintPath>
+      <HintPath>..\..\.deps\nilnul._txt_._LIB_.1.1.240902.144719\lib\net48\nilnul._txt_._LIB_.dll</HintPath>
+    </Reference>
+    <Reference Include="nilnul._xml_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\nilnul._xml_._LIB_.1.1.240820.172116\lib\net48\nilnul._xml_._LIB_.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -133,26 +185,27 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\.deps\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.Text.Json.7.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    <Reference Include="System.Text.Json, Version=8.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\..\.deps\System.Text.Json.8.0.4\lib\net462\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\(packages)\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -160,25 +213,31 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="_nilnul_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\_nilnul_._LIB_.1.1.220819.143251\lib\net481\_nilnul_._LIB_.dll</HintPath>
+    <Reference Include="_nilnul_._LIB_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\_nilnul_._LIB_.1.1.240820.60235\lib\net48\_nilnul_._LIB_.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="_nilnul_._LINQ_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230, processorArchitecture=MSIL">
-      <HintPath>packages\_nilnul_._LINQ_.1.1.220819.143032\lib\net481\_nilnul_._LINQ_.dll</HintPath>
+    <Reference Include="_nilnul_._LINQ_, Version=1.1.0.1, Culture=neutral, PublicKeyToken=085f320e4a727230">
+      <HintPath>..\..\.deps\_nilnul_._LINQ_.1.1.240820.60236\lib\net48\_nilnul_._LINQ_.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="form_\IMedium.cs" />
+    <Compile Include="IBoot.cs" />
     <Compile Include="IProc.cs" />
     <Compile Include="IProg.cs" />
+    <Compile Include="IShell.cs" />
     <Compile Include="IWin.cs" />
     <Compile Include="nilnul0\computer_\risc\Os.cs" />
     <Compile Include="nilnul0\fs\file_\IProg.cs" />
     <Compile Include="nilnul0\fs\path_\INonprog.cs" />
-    <Compile Include="nilnul0\os_\linux\Fhs.cs" />
+    <Compile Include="nilnul0\os_\_linux\Fhs.cs" />
     <Compile Include="nilnul0\Os.cs" />
     <Compile Include="nilnul0\Oses.cs" />
     <Compile Include="nilnul0\os_\Fuchsia.cs" />
     <Compile Include="nilnul0\os_\Ios.cs" />
+    <Compile Include="nilnul0\os_\linux\IBoot.cs" />
     <Compile Include="nilnul0\os_\MacOs.cs" />
     <Compile Include="nilnul0\os_\RealTime.cs" />
     <Compile Include="nilnul0\os_\Solaris.cs" />
@@ -189,8 +248,19 @@
     <Compile Include="proc\ActI.cs" />
     <Compile Include="proc\act_\TraceAsErr.cs" />
     <Compile Include="proc\IStart.cs" />
+    <Compile Include="proc\IThread.cs" />
     <Compile Include="proc\IThreads.cs" />
     <Compile Include="proc\prep\Phrase.cs" />
+    <Compile Include="proc\threads\IParallel.cs" />
+    <Compile Include="proc\thread\IMutex.cs" />
+    <Compile Include="proc\thread\ISleep.cs" />
+    <Compile Include="proc\thread_\fore_\INonUi.cs" />
+    <Compile Include="proc\thread_\IBackground.cs" />
+    <Compile Include="proc\thread_\IForeground.cs" />
+    <Compile Include="proc\thread_\IPrimary.cs" />
+    <Compile Include="proc\thread_\fore_\IUi.cs" />
+    <Compile Include="proc\thread_\IWorker.cs" />
+    <Compile Include="proc\thread_\xpn_\Green.cs" />
     <Compile Include="proc_\started\abort_\delayed_\onCancel_\throwKilling_\OnStaticCancel.cs" />
     <Compile Include="proc_\started\abort_\delayed_\onCancel_\throwQuitTimeout_\OnStaticCancel.cs" />
     <Compile Include="proc_\started\abort_\delayed_\onCancel_\_ThrowQuitTimeoutX.cs" />
@@ -263,6 +333,7 @@
     <Compile Include="proc_\started\cull_\_CancellableX.cs" />
     <Compile Include="proc_\started\ui_\_MainX.cs" />
     <Compile Include="proc_\started_\ui_\nonnil\act_\_TitleX.cs" />
+    <Compile Include="prog\co\_RunX.cs" />
     <Compile Include="prog\prep\Phrase.cs" />
     <Compile Include="prog\prep\proc_\Started.cs" />
     <Compile Include="prog\prep\proc_\started_\waited\_CodX.cs" />
@@ -544,6 +615,8 @@
     <Compile Include="prog\run\_vod_\OfAddressI.cs" />
     <Compile Include="prog\run\_vod_\OfFolderI.cs" />
     <Compile Include="prog\run\_vod_\OfShieldI.cs" />
+    <Compile Include="prog\run_\due_\IEnd.cs" />
+    <Compile Include="prog\run_\end_\IScrap.cs" />
     <Compile Include="prog\run_\exit\Cod_byNorm1st.cs" />
     <Compile Include="prog\run_\exit\cod\retCrash_\FrCod%28T.cs" />
     <Compile Include="prog\run_\exit\cod\retCrash_\FrCod.cs" />
@@ -557,7 +630,7 @@
     <Compile Include="prog\run_\exit\_CodX_byNorm1st.cs" />
     <Compile Include="prog\run_\exit_\onDue\_Cod_loomAftLurkX.cs" />
     <Compile Include="prog\run_\exit_\onDue\_msg_\OfFolderA.cs" />
-    <Compile Include="prog\run_\IDefer.cs" />
+    <Compile Include="prog\run_\IDue.cs" />
     <Compile Include="prog\run_\exit\Cod.cs" />
     <Compile Include="prog\run_\exit\CodA.cs" />
     <Compile Include="prog\run_\exit\CodI.cs" />
@@ -618,11 +691,62 @@
     <Compile Include="prog\run_\exit_\onDue\_result_\OfFolderI.cs" />
     <Compile Include="prog\run_\exit_\onDue\_result_\OfInfoI.cs" />
     <Compile Include="prog\run_\exit_\onDue\_result_\OfShieldI.cs" />
+    <Compile Include="prog\run_\IEnd.cs" />
+    <Compile Include="prog\run_\end_\scrap_\IDiscardByUser.cs" />
+    <Compile Include="prog\run_\end_\IExitByItself.cs" />
+    <Compile Include="prog\run_\end_\scrap_\IKilledByOs.cs" />
+    <Compile Include="prog\run_\_end\Li_.cs" />
+    <Compile Include="prog\_load\IVirtualMemory.cs" />
+    <Compile Include="prog\_prep\_argument\IArg.cs" />
     <Compile Include="prog\_prep\IArgument.cs" />
     <Compile Include="prog\_prep\_argument\Arg.cs" />
     <Compile Include="prog\_prep\_argument\Args.cs" />
     <Compile Include="nilnul0\txt\esc_\os_\Arg.cs" />
+    <Compile Include="prog\_run\argument_\xpn_\ITooLong.cs" />
+    <Compile Include="prog\_run\IArgument.cs" />
+    <Compile Include="prog\_run\ISetting.cs" />
+    <Compile Include="prog\_run\ISettings.cs" />
+    <Compile Include="prog\_run\_setting\ICfg.cs" />
+    <Compile Include="prog\_run\setting_\INoncfg.cs" />
+    <Compile Include="prog\_run_\OfCmdArgDirI.cs" />
+    <Compile Include="prog_\exT_\Bat.cs" />
+    <Compile Include="prog_\exT_\bat\_blob\IFunction.cs" />
+    <Compile Include="prog_\exT_\bat\_RunX.cs" />
+    <Compile Include="prog_\exT_\_bat\spear\Be.cs" />
+    <Compile Include="prog_\exT_\_bat\spear\be\Vow.cs" />
+    <Compile Include="prog_\exT_\_bat\spear\be\vow\En.cs" />
+    <Compile Include="prog_\exT_\_bat\_sentence\Var.cs" />
+    <Compile Include="prog_\exT_\_bat\_spear\Ext.cs" />
+    <Compile Include="prog_\NetSh.cs" />
     <Compile Include="Properties\Settings.cs" />
+    <Compile Include="shell\cmd\run_\_ByDllImportX.cs" />
+    <Compile Include="shell\cmd\run_\_ByVbX.cs" />
+    <Compile Include="shell\cmd\run_\_ByExeX.cs" />
+    <Compile Include="shell\cmd_\ISet.cs" />
+    <Compile Include="shell\cmd_\echo_\Br.cs" />
+    <Compile Include="shell\cmd_\ISetLocal.cs" />
+    <Compile Include="shell\cmd_\ISetx.cs" />
+    <Compile Include="shell\cmd_\Wmic.cs" />
+    <Compile Include="shell\IScope.cs" />
+    <Compile Include="shell\_cmd\Var.cs" />
+    <Compile Include="shell\_scope\VarX.cs" />
+    <Compile Include="shell\_scope\var\Val.cs" />
+    <Compile Include="shell\_scope\var\val\ensure_\Persisitent.cs" />
+    <Compile Include="shell\_scope\var\val\ensure_\SessionWise.cs" />
+    <Compile Include="shell\_scope\var\val_\ProcessCached.cs" />
+    <Compile Include="shell\_scope\var\val_\_UsrX.cs" />
+    <Compile Include="shell\_scope\_vars\Li_.cs" />
+    <Compile Include="shell\_scope\_vars\Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="shell\_scope\_var\attr_\SysAttribute.cs" />
+    <Compile Include="shell\_scope\_var\attr_\UserAttribute.cs" />
+    <Compile Include="shell\_scope\_var\attr_\ShellAttribute.cs" />
+    <Compile Include="shell\_scope\_var\attr_\LogonAttribute.cs" />
+    <Compile Include="shell\_scope\_var\attr_\Dynamic.cs" />
+    <Compile Include="shell_\_CmdX.cs" />
     <Compile Include="uis\Find.cs" />
     <Compile Include="ui\act_\bottom_\inact1min_\title\Delay.cs" />
     <Compile Include="ui\act_\bottom_\inact1min_\title\traceXpn\Delay.cs" />
@@ -632,7 +756,9 @@
     <Compile Include="ui\act_\bottom_\normal_\inact1min_\title\traceXpn\Delay.cs" />
     <Compile Include="ui\act_\bottom_\normal_\inact1min_\title\_TackleXpntX.cs" />
     <Compile Include="ui\act_\bottom_\normal_\inact1min_\_Title4singleX.cs" />
+    <Compile Include="ui\ctr_\IHoverbox.cs" />
     <Compile Include="ui\show_\_Min1inactiveX.cs" />
+    <Compile Include="ui_\ICommandLine.cs" />
     <Compile Include="ui_\nonnil\act_\bottom_\inact1min_\title\Delay.cs" />
     <Compile Include="ui_\nonnil\act_\bottom_\inact1min_\title\traceXpn\Delay.cs" />
     <Compile Include="ui_\nonnil\act_\bottom_\inact1min_\title\_TackleXpntX.cs" />
@@ -703,6 +829,7 @@
     <Compile Include="_proc\IPrep.cs" />
     <Compile Include="_proc\_prep\IProg.cs" />
     <Compile Include="_proc\_trace\_CallSiteX.cs" />
+    <Compile Include="_shell\_cmd\Li_.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="nilnul0\app\" />
@@ -763,17 +890,20 @@
     <Folder Include="prog\prep_\shell_\win_\hid\proc_\started_\uxp_\" />
     <Folder Include="prog\prep_\shell_\win_\min\proc_\started\ui\" />
     <Folder Include="prog\prep_\shell_\win_\min\proc_\started_\invis_\defer_\loom_\waited\cod\" />
-    <Folder Include="prog\run_\defer_\" />
     <Folder Include="prog\run_\exit\result\" />
     <Folder Include="prog\run_\exit_\onDue\ended\" />
     <Folder Include="prog\run_\exit_\onDue\msg_\_trim_\" />
     <Folder Include="prog\run_\exit_\onDue\result\" />
     <Folder Include="prog\_prep\_argument\_arg\txt\" />
+    <Folder Include="prog_\exT_\_bat\spear\_be\" />
+    <Folder Include="shell\cmd_\setLocal_\" />
+    <Folder Include="shell\_scope\_vars\_keys\" />
     <Folder Include="ui\act_\bottom_\inact1min_\title\delay\" />
     <Folder Include="ui\act_\bottom_\normal_\inact1min_\title\delay\" />
     <Folder Include="ui\title_\" />
     <Folder Include="ui_\nonnil\act_\bottom_\inact1min_\title\delay\" />
     <Folder Include="ui_\nonnil\act_\bottom_\normal_\inact1min_\title\delay\" />
+    <Folder Include="_shell\cmd_\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -786,6 +916,15 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="shell\_scope\_vars\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="License.txt" Pack="true" PackagePath="" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="PostBuildMacros">
@@ -816,37 +955,46 @@
 			$(PostBuildEventDependsOn);
 			PostBuildMacros;
 		</PostBuildEventDependsOn>
-    <PostBuildEvent>
-			echo ConfigurationName is $(ConfigurationName)
-			if $(ConfigurationName) == Release (
-			"NuGet.exe" pack "$(ProjectPath)" -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)
-			"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).nupkg -SkipDuplicate -Source local
-			"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).nupkg -SkipDuplicate -Source my
-			) ELSE (
-			if  $(ConfigurationName)==Symbol (
-			"NuGet.exe" pack "$(ProjectPath)" -Symbols -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)
-			"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).symbols.nupkg -SkipDuplicate -Source local
-			"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).symbols.nupkg -SkipDuplicate -Source my
-			)
-			if  $(ConfigurationName)==Nuget (
-			"NuGet.exe" pack "$(ProjectPath)"  -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)
-			"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).nupkg -SkipDuplicate -Source nuget.org
-			)
-			if  $(ConfigurationName)==Dev2nuget (
-			"NuGet.exe" pack "$(ProjectPath)"  -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)-dev
-			"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision)-dev.nupkg -SkipDuplicate -Source nuget.org
-			)
-			)
-		</PostBuildEvent>
+    <PostBuildEvent>echo ConfigurationName is $(ConfigurationName)
+if $(ConfigurationName) == Release (
+	"NuGet.exe" pack "$(ProjectPath)" -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)
+	"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).nupkg -SkipDuplicate -Source local
+	"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).nupkg -SkipDuplicate -Source my
+	"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).nupkg -SkipDuplicate -Source nuget
+) ELSE (
+	if  $(ConfigurationName)==Symbol (
+		"NuGet.exe" pack "$(ProjectPath)" -Symbols -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).symbols.nupkg -SkipDuplicate -Source local
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).symbols.nupkg -SkipDuplicate -Source my
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).symbols.nupkg -SkipDuplicate -Source nuget
+	)
+	if  $(ConfigurationName)==Nuget (
+		"NuGet.exe" pack "$(ProjectPath)"  -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision).nupkg -SkipDuplicate -Source nuget.org
+	)
+	if  $(ConfigurationName)==Dev2nuget (
+		"NuGet.exe" pack "$(ProjectPath)"  -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)-dev
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision)-dev.nupkg -SkipDuplicate -Source nuget.org
+	)
+	if  $(ConfigurationName)==Sym2nuget (
+		"NuGet.exe" pack "$(ProjectPath)"  -Prop Configuration=$(ConfigurationName) -Exclude **/*.tt -Version @(MajorMinor).$(nilnulPatchRevision)-sym
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision)-sym.nupkg -SkipDuplicate -Source local
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision)-sym.nupkg -SkipDuplicate -Source my
+		"NuGet.exe" push $(TargetName).@(MajorMinor).$(nilnulPatchRevision)-sym.nupkg -SkipDuplicate -Source nuget.org
+	)
+)</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <!--<Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.targets'))" />-->
   </Target>
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!--<Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />-->
   <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\..\.deps\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>

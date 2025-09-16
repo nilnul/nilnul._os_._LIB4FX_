@@ -9,7 +9,7 @@ namespace nilnul.os.proc_.finished._result.data
 		{
 			if (r.beErr)
 			{
-				throw new os.proc_.finished._result.data_.xpn_.CodIsNotOkException(r.exitCode,r.err);
+				throw new os.proc_.finished._result.data_.xpn_.CodIsNotOkException(r.exitCode,r.msg,r.err);
 			}
 		}
 

@@ -25,6 +25,9 @@ https://github.com/SerenityOS/serenity
 	///			linux
 	///			MacOs
 	/// </summary>
+	/// <remarks>
+	/// such as posix, a standard for os.
+	/// </remarks>
 
 	interface IOs
     {

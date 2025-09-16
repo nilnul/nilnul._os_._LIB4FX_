@@ -12,6 +12,9 @@ using nilnul.fs.address_;
 
 namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_.errAsyn_.started_.stdSyn_
 {
+	/// <summary>
+	/// <see cref="os.proc_.started.IQuit"/>
+	/// </summary>
 	public class Quit
 		: StdSyn
 

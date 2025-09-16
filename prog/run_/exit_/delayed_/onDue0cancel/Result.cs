@@ -7,6 +7,9 @@ namespace nilnul.os.prog.run_.exit_.delayed_.onDue0cancel
 	/// <summary>
 	/// to get the result in time, nonShell/redirStd/redirErr/errAsn/(stdSyn) is required.
 	/// </summary>
+	/// <remarks>
+	/// when due0cancel, abort;
+	/// </remarks>
 	public  class Result
 		
 	{

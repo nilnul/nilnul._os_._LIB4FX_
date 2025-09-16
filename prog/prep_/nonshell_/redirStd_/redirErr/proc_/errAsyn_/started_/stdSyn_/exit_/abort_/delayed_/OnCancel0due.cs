@@ -12,6 +12,9 @@ using nilnul.fs.address_;
 
 namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_.errAsyn_.started_.stdSyn_.exit_.abort_.delayed_
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class OnDue0cancel
 		: StdSyn
 
@@ -146,7 +149,14 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_.errAsyn_.start
 
 
 
-
+		/// <summary>
+		/// aborting
+		/// </summary>
+		/// <param name="life"></param>
+		/// <param name="cancellationToken"></param>
+		/// <param name="runAftCancel"></param>
+		/// <param name="closing"></param>
+		/// <param name="wait"></param>
 		private void _end(int? life, CancellationToken cancellationToken,int? runAftCancel=null, int? closing=null, int? wait=null)
 		{
 

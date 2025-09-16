@@ -23,6 +23,8 @@ namespace nilnul.os.proc_.finished._result.data_.xpn_
 		{
 		}
 
+	
+
 		public CodIsNotOkException(string message, Exception inner) : base(message, inner) { }
 		protected CodIsNotOkException(
 		  System.Runtime.Serialization.SerializationInfo info,

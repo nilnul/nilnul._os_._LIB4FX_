@@ -10,7 +10,7 @@ namespace nilnul.os.proc_.started
 	/// </summary>
 	public static class _KillX
 	{
-		/*The source code for Process.Kill() in shows setting the exit code to -1 (as of Sep 2012). The Windows operating system actually uses 32-bit unsigned values for the exit codes but I believe the signed->unsigned->signed translations in C# should work (I only need to check for zero or non-zero so it doesn't matter for my code).
+		/*The source code for Process.Kill() shows setting the exit code to -1 (as of Sep 2012). The Windows operating system actually uses 32-bit unsigned values for the exit codes but I believe the signed->unsigned->signed translations in C# should work (I only need to check for zero or non-zero so it doesn't matter for my code).
 On the other hand, this is obviously undocumented behavior (Why?) so Microsoft could change it tomorrow and break my code by setting the exit code to 0.
 
 2 processes, a parent process and a child process. The parent process controls the lifecycle of child process i.e. parent process launches the child process when it needs the child to do some work and also it kills the child when it is done with it. To kill the child process, parent process is using Process.Kill() and process.WaitForExit() APIs. 
@@ -27,7 +27,9 @@ In the case of the task manager, the exit code is set to 1, but I don't know if 
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="proc"></param>
+		/// <param name="proc">
+		/// a C# object, representing an Os process. the represented process might be not started yet; or the represented process might be killed by the os;
+		/// </param>
 		/// <param name="timeout2closeWin">time allowed for suicide</param>
 		/// <param name="processWaited">
 		///to cancel the supervising of the suicide, as

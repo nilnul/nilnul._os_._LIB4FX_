@@ -17,7 +17,7 @@ namespace nilnul.os.prog.prep_.nonshell_.redirStd_.redirErr.proc_.errAsyn_.start
 	)
 		{
 			using (var p = new Quit(cmd, arg,
-				nilnul.fs.address.nulable.to_._OverlongX.PrependIfNeed(dir)
+				nilnul.fs.address.long0no.nulable.op_.unary_._EnsureX.PrependIfNeed(dir)
 				//dir
 				, life, bye//, waitAftKill
 				))

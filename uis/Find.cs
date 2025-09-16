@@ -17,7 +17,22 @@ namespace nilnul.os.uis
 		private static extern int GetWindowThreadProcessId(IntPtr hWnd, out int ProcessId);
 
 
-		static public IntPtr OfProcId( int procId) //Unhide Process
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="procId"></param>
+		/// <returns></returns>
+		/// <exception cref="">
+		///		/// System.ObjectDisposedException: 已关闭 Safe handle
+		////在 System.Runtime.InteropServices.SafeHandle.DangerousAddRef(Boolean& success)
+		//// 在 System.StubHelpers.StubHelpers.SafeHandleAddRef(SafeHandle pHandle, Boolean& success)
+		//// 在 Microsoft.Win32.NativeMethods.NtQueryInformationProcess(SafeProcessHandle processHandle, Int32 query, NtProcessBasicInfo info, Int32 size, Int32[] returnedSize)
+		//// 在 System.Diagnostics.NtProcessManager.GetProcessIdFromHandle(SafeProcessHandle processHandle)
+		//// 在 System.Diagnostics.ProcessManager.GetProcessIdFromHandle(SafeProcessHandle processHandle)
+		//// 在 System.Diagnostics.Process.EnsureState(State state)
+		//// 在 System.Diagnostics.Process.get_Id()
+		/// </exception>
+		static public IntPtr OfProcId(int procId) //Unhide Process
 		{
 			IntPtr handle = IntPtr.Zero;
 			int prcsId = 0;
@@ -42,11 +57,11 @@ namespace nilnul.os.uis
 			} while (handle != IntPtr.Zero);
 			return handle;
 		}
-		static public IntPtr OfProcId_onYield( int procId) //Unhide Process
+		static public IntPtr OfProcId_onYield(int procId) //Unhide Process
 		{
 			return Handles_ofProcId(procId).FirstOrDefault();
 		}
-		static public IEnumerable< IntPtr> Handles_ofProcId( int procId) //Unhide Process
+		static public IEnumerable<IntPtr> Handles_ofProcId(int procId) //Unhide Process
 		{
 			IntPtr handle = IntPtr.Zero;
 			int prcsId = 0;
@@ -72,13 +87,24 @@ namespace nilnul.os.uis
 			//return handle;
 		}
 
-		static public IntPtr Handle( Process procId) //Unhide Process
+		static public IntPtr Handle(Process procId) //Unhide Process
 		{
-			return OfProcId( procId.Id );
+
+			return OfProcId(
+				procId.Id /*System.ObjectDisposedException: 已关闭 Safe handle
+   在 System.Runtime.InteropServices.SafeHandle.DangerousAddRef(Boolean& success)
+   在 System.StubHelpers.StubHelpers.SafeHandleAddRef(SafeHandle pHandle, Boolean& success)
+   在 Microsoft.Win32.NativeMethods.NtQueryInformationProcess(SafeProcessHandle processHandle, Int32 query, NtProcessBasicInfo info, Int32 size, Int32[] returnedSize)
+   在 System.Diagnostics.NtProcessManager.GetProcessIdFromHandle(SafeProcessHandle processHandle)
+   在 System.Diagnostics.ProcessManager.GetProcessIdFromHandle(SafeProcessHandle processHandle)
+   在 System.Diagnostics.Process.EnsureState(State state)
+   在 System.Diagnostics.Process.get_Id()*/
+
+			);
 		}
-		static public IEnumerable< IntPtr> Handles( Process procId) //Unhide Process
+		static public IEnumerable<IntPtr> Handles(Process procId) //Unhide Process
 		{
-			return Handles_ofProcId( procId.Id );
+			return Handles_ofProcId(procId.Id);
 		}
 
 

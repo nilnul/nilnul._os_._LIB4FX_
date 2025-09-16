@@ -8,7 +8,7 @@ using nilnul.str;
 namespace nilnul.os.proc_.started.abort_.delayed_.onDue0cancel_
 {
 	/// <summary>
-	///  cancel or timeout or exitEvt, which comes first
+	///  cancel or timeout or exitEvt, whichever comes first
 	///  
 	/// </summary>
 	/// alias:
@@ -54,7 +54,7 @@ namespace nilnul.os.proc_.started.abort_.delayed_.onDue0cancel_
 			{
 				var procWaitedToken = processWaited.Token;
 
-				var linkedCancel = CancellationTokenSource.CreateLinkedTokenSource(userCancelProcess, procWaitedToken);
+				var linkedCancel = CancellationTokenSource.CreateLinkedTokenSource(userCancelProcess, procWaitedToken); //cancel or due
 
 
 				//var exited5cull = false;
@@ -66,7 +66,7 @@ namespace nilnul.os.proc_.started.abort_.delayed_.onDue0cancel_
 				to kill
 
 				 */
-				Task.Delay(lifeCancelable, linkedCancel.Token).ContinueWith(
+				_=Task.Delay(lifeCancelable, linkedCancel.Token).ContinueWith(
 					t =>
 					{
 						if (processWaited.IsCancellationRequested) { return; }
@@ -76,7 +76,7 @@ namespace nilnul.os.proc_.started.abort_.delayed_.onDue0cancel_
 							procWaitedToken //this cannot be cancelled by the user0callerCancelToken
 						).ContinueWith(t =>
 						{
-							cull_._CancellableX.Exited0cancelledAsyn(
+							_=cull_._CancellableX.Exited0cancelledAsyn(
 								_proc_unwaited
 								, _user2close_positive
 								, processWaited.Token

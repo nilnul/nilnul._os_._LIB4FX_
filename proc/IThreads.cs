@@ -4,13 +4,20 @@ using System.Threading;
 
 namespace nilnul.os.proc
 {
+	/*	The thread context includes all the information the thread needs to seamlessly resume execution, including the thread's set of CPU registers and stack. 
+	 	
+	 	Multiple threads can run in the context of a process. All threads of a process share its virtual address space. A thread can execute any part of the program code, including parts currently being executed by another thread.
+	 	
+Application domains are not available on .NET Core
+	 */
 	/// <summary>
 	/// processThread;
 	/// </summary>
 	/// <remarks>
 	///When a process starts, the common language runtime automatically creates a single foreground thread to execute application code. Along with this main foreground thread, a process can create one or more threads to execute a portion of the program code associated with the process. These threads can execute either in the foreground or in the background. In addition, you can use the ThreadPool class to execute code on worker threads that are managed by the common language runtime.
 	/// </remarks>
-	public interface IThreads {
+	public interface IThreads
+	{
 
 		/// <summary>
 		/// When a process starts, the common language runtime automatically creates a single foreground thread to execute application code.
@@ -23,4 +30,5 @@ namespace nilnul.os.proc
 		IEnumerable<Thread> extras { get; }
 
 	}
+
 }

@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace nilnul.os.proc_.started
 {
+	/// <summary>
+	/// <see cref="ICull"/>
+	/// </summary>
 	public static class _CullX
 	{
 		/*The source code for Process.Kill() in shows setting the exit code to -1 (as of Sep 2012). The Windows operating system actually uses 32-bit unsigned values for the exit codes but I believe the signed->unsigned->signed translations in C# should work (I only need to check for zero or non-zero so it doesn't matter for my code).

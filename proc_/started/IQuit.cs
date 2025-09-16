@@ -9,7 +9,8 @@ namespace nilnul.os.proc_.started
 	/// </summary>
 	/// <remarks>
 	/// </remarks>
-	/// 
+	/// vs:
+	///		<see cref="IAbort"/>
 	/// alias:
 	///		quit
 	///			k"ui"ll, wai"t"

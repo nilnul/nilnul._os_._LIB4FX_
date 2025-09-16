@@ -21,6 +21,9 @@ namespace nilnul.os.proc_.started
 	/// vs: <see cref="abort_._ByKillAftWaitX"/>, kill while/when wait
 	/// </remarks>
 	/// alias:
+	///		abort
+	///			vs: cull, of two phases
+	///			vs: quit, of two phase;
 	///		waitOut,
 	///			analog to timeout
 	///		resign
